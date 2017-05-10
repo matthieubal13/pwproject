@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('snpref.urls')),
+    url(r'', include('authuser.urls')),
+    url(r'^phenotypes/', include('snpref.urls')),
 ]
