@@ -1,3 +1,18 @@
-{% for phenotype in phenotypes %}
-    {{ phenotype }}
-{% endfor %}
+<html>
+    <head>
+        <title>List of phenotypes</title>
+    </head>
+    <body>
+        <div>
+            <h1>List of phenotypes:</h1>
+          <div>
+            <ul>
+              {% for phenotype in phenotypes %}
+              <li>{{ phenotype}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+
+    </body>
+</html>
