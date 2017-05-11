@@ -26,7 +26,7 @@ SECRET_KEY = '9ud0&=tx0=cgb709=hic7pd2y(fvr6@45px1u%iouo183qe8#e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'infinite-brook-20996.herokuapp.com', u'localhost',
+ALLOWED_HOSTS = [u'floating-anchorage-89823.herokuapp.com', u'localhost',
 u'0.0.0.0']
 
 
