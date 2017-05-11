@@ -1,0 +1,11 @@
+{% extends 'snpref/base.html' %}
+
+{% block content %}
+  <h2>{{ phenotype.trait }}</h2>
+  <a href="{{phenotype.ref}}">Link to pubmed</a>
+  {% for snp in snps %}
+    <div>
+      {{snp.rs_id}}
+    </div>
+  {% endfor %}
+{% endblock content %}

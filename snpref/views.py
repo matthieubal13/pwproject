@@ -16,6 +16,14 @@ def phenotype_list(request):
     return render(request, 'snpref/phenotype_list.html',
     {'phenotypes': phenotypes})
 
+def phenotype_detail(request, pk):
+    if not request.user.is_authenticated:
+        return redirect_to_connexion()
+    phenotype = Phenotype.objects.get(pk = pk)
+    snps = SNP.objects.filter(phenotype = phenotype)
+    return render(request, 'snpref/phenotype_detail.html',
+    {'phenotype': phenotype, 'snps':snps})
+
 def snp_list(request):
     if not request.user.is_authenticated:
         return redirect_to_connexion()

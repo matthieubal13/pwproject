@@ -1,10 +1,13 @@
 {% extends 'snpref/base.html' %}
 
 {% block content %}
-  <h1>List of phenotypes:</h1>
-  <ul>
+  <h2>List of phenotypes</h2>
     {% for phenotype in phenotypes %}
-      <li>{{ phenotype}}</li>
+      <div>
+        <a href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}">
+          {{phenotype.trait}}
+        </a>
+      </div>
     {% endfor %}
-  </ul>
+
 {% endblock content %}

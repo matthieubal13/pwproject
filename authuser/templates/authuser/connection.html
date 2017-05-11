@@ -1,10 +1,17 @@
-<h2><a href="/admin">Administration</a></h2>
-<h1>Log in</h1>
-{% if error %}
-<p><strong>Unknown user or wrong password.</strong></p>
-{% endif %}
-<form method="post" action=".">
+<head>
+    <title>SNPr</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <a href="/admin">Administration</a>
+  <div>Log in</div>
+  {% if error %}
+    <p><strong>Unknown user or wrong password.</strong></p>
+  {% endif %}
+  <form method="post" action=".">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Log in" />
-</form>
+  </form>
+</body>

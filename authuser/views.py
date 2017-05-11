@@ -9,11 +9,11 @@ from .forms import ConnexionForm
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
 
-def deconnexion(request):
+def disconnection(request):
     logout(request)
     return redirect(reverse('authuser:connection'))
 
-def connexion(request):
+def connection(request):
     if request.user.is_authenticated():
         return redirect_to_phenotype_list()
     error = False
