@@ -1,18 +1,10 @@
-<html>
-    <head>
-        <title>List of phenotypes</title>
-    </head>
-    <body>
-        <div>
-            <h1>List of phenotypes:</h1>
-          <div>
-            <ul>
-              {% for phenotype in phenotypes %}
-              <li>{{ phenotype}}</li>
-              {% endfor %}
-            </ul>
-          </div>
+{% extends 'snpref/base.html' %}
 
-
-    </body>
-</html>
+{% block content %}
+  <h1>List of phenotypes:</h1>
+  <ul>
+    {% for phenotype in phenotypes %}
+      <li>{{ phenotype}}</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

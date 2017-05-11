@@ -8,15 +8,14 @@ from django.contrib.auth import authenticate, login
 from .forms import ConnexionForm
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
-from snpref.views import phenotype_list
 
 def deconnexion(request):
     logout(request)
-    return redirect(reverse(connexion))
+    return redirect(reverse('authuser:connection'))
 
 def connexion(request):
     if request.user.is_authenticated():
-        return redirect(reverse(phenotype_list))
+        return redirect_to_phenotype_list()
     error = False
     if request.method == "POST":
         form = ConnexionForm(request.POST)
@@ -26,9 +25,12 @@ def connexion(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect(reverse(phenotype_list))
+                return redirect_to_phenotype_list()
             else:
                 error = True
     else:
         form = ConnexionForm()
-    return render(request, 'authuser/connexion.html', locals())
+    return render(request, 'authuser/connection.html', locals())
+
+def redirect_to_phenotype_list():
+    return redirect(reverse('snpref:phenotype_list'))
