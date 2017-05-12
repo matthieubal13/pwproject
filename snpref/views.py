@@ -6,7 +6,6 @@ import csv
 
 # Create your views here.
 from .models import Phenotype, SNP
-from .forms import UploadSNPsForm
 from django.core.urlresolvers import reverse
 
 def phenotype_list(request):
