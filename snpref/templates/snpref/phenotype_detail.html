@@ -1,7 +1,13 @@
 {% extends 'snpref/base.html' %}
 
 {% block content %}
-  <h2>{{ phenotype.trait }}</h2>
+<head>
+    <title>SNPr SNPs</title>
+</head>
+<body>
+  <div class="well well-sm">
+    <h4>SNPs related to the phenotype {{phenotype.trait}}</h4>
+  </div>
   {% for snp in snps %}
     <div class = "list-group">
       <a class="list-group-item list-group-item-action" href="{{snp.ref}}">
@@ -10,3 +16,4 @@
     </div>
   {% endfor %}
 {% endblock content %}
+</body>

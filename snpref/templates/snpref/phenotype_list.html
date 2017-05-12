@@ -1,18 +1,22 @@
 {% extends 'snpref/base.html' %}
 
 {% block content %}
-  <div>
-    <h2>List of phenotypes</h2>
-    {% for phenotype in phenotypes %}
-      <div class = "list-group">
-        <a class="list-group-item list-group-item-action" href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}">
-          {{phenotype.trait}}
-          <span class="badge badge-default badge-pill">
-            {{phenotype.snp_number}}
-          </span>
-        </a>
-
-      </div>
-    {% endfor %}
+<head>
+    <title>SNPr Phenotypes</title>
+</head>
+<body>
+  <div class="well well-sm">
+    <h4>List of phenotypes</h4>
   </div>
+    {% for phenotype in phenotypes %}
+    <div class = "list-group">
+      <a class="list-group-item list-group-item-action" href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}">
+        {{phenotype.trait}}
+        <span class="badge badge-default badge-pill">
+          {{phenotype.snp_number}}
+        </span>
+      </a>
+    </div>
+  {% endfor %}
 {% endblock content %}
+</body>
