@@ -2,10 +2,11 @@
 
 {% block content %}
   <h2>{{ phenotype.trait }}</h2>
-  <a href="{{phenotype.ref}}">Link to pubmed</a>
   {% for snp in snps %}
-    <div>
-      {{snp.rs_id}}
+    <div class = "list-group">
+      <a class="list-group-item list-group-item-action" href="{{snp.ref}}">
+        {{snp.rs_id}}
+      </a>
     </div>
   {% endfor %}
 {% endblock content %}

@@ -7,14 +7,16 @@ from django.db import models
 
 class Phenotype(models.Model):
     trait = models.CharField(max_length = 100)
-    ref = models.URLField()
 
     def __str__(self):
-        return self.trait + "\t" + self.ref
+        return str(self.trait)
+
 
 class SNP(models.Model):
-    phenotype = models.ForeignKey(Phenotype, on_delete = models.CASCADE)
-    rs_id = models.CharField(max_length = 15)
+    rs_id = models.CharField(max_length = 20)
+    phenotype = models.ForeignKey(Phenotype, on_delete = models.CASCADE,
+    default = None)
+    ref = models.URLField(default = None)
 
     def __str__(self):
-        return str(self.phenotype) + "\t" + self.rs_id
+        return str(self.rs_id) + " - " + str(self.phenotype)

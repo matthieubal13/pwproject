@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.contrib.auth import authenticate, login
-from .forms import ConnexionForm
+from .forms import ConnectionForm
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
 
@@ -18,7 +18,7 @@ def connection(request):
         return redirect_to_phenotype_list()
     error = False
     if request.method == "POST":
-        form = ConnexionForm(request.POST)
+        form = ConnectionForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
@@ -29,7 +29,7 @@ def connection(request):
             else:
                 error = True
     else:
-        form = ConnexionForm()
+        form = ConnectionForm()
     return render(request, 'authuser/connection.html', locals())
 
 def redirect_to_phenotype_list():
