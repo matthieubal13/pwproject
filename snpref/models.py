@@ -14,9 +14,20 @@ class Phenotype(models.Model):
 
 class SNP(models.Model):
     rs_id = models.CharField(max_length = 20)
-    phenotype = models.ForeignKey(Phenotype, on_delete = models.CASCADE,
-    default = None)
-    ref = models.URLField(default = None)
 
     def __str__(self):
-        return str(self.rs_id) + " - " + str(self.phenotype)
+        return str(self.rs_id)
+
+class Reference(models.Model):
+    url = models.URLField()
+
+    def __str__(self):
+        return str(self.url)
+
+class SNPRefPhen(models.Model):
+    phenotype = models.ForeignKey(Phenotype, on_delete = models.CASCADE)
+    snp = models.ForeignKey(SNP, on_delete = models.CASCADE)
+    ref = models.ForeignKey(Reference, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return str(self.phenotype) + " - " + str(self.snp)

@@ -1,38 +1,51 @@
-h4 {
+body {
+  font-family: 'Ubuntu Condensed';
+}
 
-  font-family: 'Gloria Hallelujah';
+h4 {
+  font-size : 20pt;
   text-align: center;
-  color: #AFF58C;
 }
 
 .navbar-inverse {
-  background-color: #AFF58C;
-  border-color: #AFF58C;
+  background-color: #CCCCCC;
+  border-color: #AAAAAA;
 }
 
 .list-group .list-group-item {
   text-align: center;
-  color: #2784B3;
+  color: #0c5578;
+  font-size: 15pt;
+  background-color: #CCCCCC;
 }
 
-.navbar-inverse .navbar-header .navbar-toggle .icon-bar {
-  background-color: #AFF58C;
-}
-
-.navbar-inverse .navbar-header .navbar-toggle {
-  border-color: white;
-  background-color: #2784B3;
+.list-group:hover  .list-group-item:hover {
+  background-color: #0c5578;
+  color: #DDDDDD;
 }
 
 .navbar-inverse .navbar-header .navbar-brand {
-  color: #2784B3;
-  font-family: 'Sarina';
+  color: #0c5578;
+  font-size: 30pt;
 }
 
-[placeholder] {
-    color: #2784B3;
+.toolbar{
+  color: #0c5578;
 }
 
-.badge-default {
-  color: #AFF58C;
+.toolbar:hover {
+  color: #000000;
+}
+
+.badge {
+  font-size: 15pt;
+  background-color: #0c5578;
+}
+
+.well {
+  background-color: #CCCCCC;
+}
+
+.snp-link:hover{
+  text-decoration: none;
 }

@@ -5,11 +5,15 @@
       <title>SNPr Phenotypes</title>
   </head>
   <div class="well well-sm">
-    <h4>List of phenotypes</h4>
+    <h4>All the phenotypes</h4>
   </div>
     {% for phenotype in phenotypes %}
       <div class = "list-group">
+        {% if phenotype.snp_number <= 0 %}
+        <a class="list-group-item list-group-item-action disabled" href="#">
+        {% else %}
         <a class="list-group-item list-group-item-action" href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}">
+        {% endif%}
           {{phenotype.trait}}
           <span class="badge badge-default badge-pill">
             {{phenotype.snp_number}}

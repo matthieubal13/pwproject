@@ -5,15 +5,16 @@ from django.shortcuts import render, redirect
 import csv
 
 # Create your views here.
-from .models import Phenotype, SNP
+from .models import Phenotype, SNP, Reference, SNPRefPhen
 from django.core.urlresolvers import reverse
+from .forms import SearchForm
 
 def phenotype_list(request):
     if not request.user.is_authenticated:
         return redirect_to_connexion()
     phenotypes = Phenotype.objects.all()
     for phenotype in phenotypes:
-        phenotype.snp_number = len(SNP.objects.filter(phenotype = phenotype))
+        phenotype.snp_number = len(SNPRefPhen.objects.filter(phenotype = phenotype))
     return render(request, 'snpref/phenotype_list.html',
     {'phenotypes': phenotypes})
 
@@ -22,25 +23,19 @@ def phenotype_detail(request, pk):
     if not request.user.is_authenticated:
         return redirect_to_connexion()
     phenotype = Phenotype.objects.get(pk = pk)
-    snps = SNP.objects.filter(phenotype = phenotype)
+    snp_refs = SNPRefPhen.objects.filter(phenotype = phenotype)
     return render(request, 'snpref/phenotype_detail.html',
-    {'phenotype': phenotype, 'snps' : snps})
+    {'snp_refs' : snp_refs, 'phenotype' : phenotype})
 
 
-def snp_list(request):
+def snp_detail(request, pk):
     if not request.user.is_authenticated:
         return redirect_to_connexion()
-    snp = SNP.objects.all()
-    return render(request, 'snpref/snp_list.html',
-    {'snp': snp})
+    snp = SNP.objects.get(pk = pk)
+    snp_refs = SNPRefPhen.objects.filter(snp = snp)
+    return render(request, 'snpref/snp_detail.html',
+    {'snp_refs' : snp_refs, 'snp' : snp})
 
-def result_search(request, pk):
-    if not request.user.is_authenticated:
-        return redirect_to_connexion()
-    result = SNP.objects.get(pk = pk)
-    phenotypes = Phenotype.objects.filter(snp = snp)
-    return render(request, 'snpref/result_search.html',
-    {'result': result, 'snps' : snps})
 
 
 def redirect_to_connexion():
