@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('authuser.urls', namespace = 'authuser')),
     url(r'^phenotypes/', include('snpref.urls', namespace = 'snpref')),
+    url(r'^snp/', include('snpref.urls', namespace = 'snpref')),
 ]

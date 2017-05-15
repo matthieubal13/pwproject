@@ -7,17 +7,17 @@
   <div class="well well-sm">
     <h4>SNPs related to the phenotype {{phenotype.trait}}</h4>
   </div>
-  <div class = "list-group">
-    {% for snp_ref in snp_refs %}
-
-        <div class = "snp-list"><a href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
-          data-toggle="tooltip" title="Details" class = "snp-link">
-          {{snp_ref.snp.rs_id}}
-        </a>&emsp;<a href="{{snp_ref.ref.url}}" class = "snp-link"
-          data-toggle="tooltip" title="Reference">
-          <small>Link to PubMed</small>
-        </a></div>
-
-    {% endfor %}
-  </div>
+  {% for snp_ref in snp_refs %}
+    <div class = "list-group">
+      <a class="list-group-item list-group-item-action"
+       href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
+       data-toggle="tooltip" title="Phenotypes related to" class = "snp-to-pheno">
+       {{snp_ref.snp.rs_id}}
+       <href="{{snp_ref.ref.url}}" class = "snp-link"
+       data-toggle="tooltip" title="Reference">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
+       title="References PubMed" alt="References PubMed" style="width:60px;height:21px;">
+      </a>
+    </div>
+  {% endfor %}
 {% endblock content %}

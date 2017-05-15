@@ -7,7 +7,7 @@ import csv
 # Create your views here.
 from .models import Phenotype, SNP, Reference, SNPRefPhen
 from django.core.urlresolvers import reverse
-from .forms import SearchForm
+# from .forms import SearchForm
 
 def phenotype_list(request):
     if not request.user.is_authenticated:
