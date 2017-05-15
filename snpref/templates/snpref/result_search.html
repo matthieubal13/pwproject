@@ -1,0 +1,18 @@
+{% extends 'snpref/base.html' %}
+
+{% block content %}
+  <head>
+      <title>SNPr Results</title>
+  </head>
+  <div class="well well-sm">
+    <h4>Results of search</h4>
+      </div>
+        {% for phenotype in phenotypes %}
+          <div class = "list-group">
+            <a class="list-group-item list-group-item-action" href="{{phenotype.ref}}">
+              {{phenotype.trait_id}}
+            </a>
+          </div>
+      </div>
+    {% endfor %}
+{% endblock content %}

@@ -1,3 +1,16 @@
-{% for snp in snp %}
-    {{ snp }}
-{% endfor %}
+{% extends 'snpref/base.html' %}
+
+{% block content %}
+  <head>
+      <title>SNPr SNPs</title>
+  </head>
+  <div class="well well-sm">
+    <h4>List of SNPs</h4>
+  </div>
+    {% for snp in snp %}
+      <div class = "list-group">
+        <a class="list-group-item list-group-item-action" href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}">
+          {{ snp }}</a>
+      </div>
+    {% endfor %}
+{% endblock content %}
