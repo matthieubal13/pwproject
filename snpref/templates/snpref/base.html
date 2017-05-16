@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/snpref.css' %}">
@@ -44,6 +45,16 @@
       <div class="container-fluid" style="margin-top:75px;">
         {% block content %}
         {% endblock %}
+      </div>
+      <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+          <p class="navbar-text pull-left">© 2017 - Site Built By Bal & Ménétrier
+               <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+          </p>
+          <a href="mailto:zacharie.menetrier@gmail.com?Subject=About%20SNPr"
+          target="_top" class="navbar-btn btn-danger btn pull-right">
+          <span class="glyphicon glyphicon-star"></span>  Contact us</a>
+        </div>
       </div>
     </body>
 </html>

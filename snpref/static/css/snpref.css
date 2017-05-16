@@ -45,3 +45,18 @@ h4 {
 .well {
   background-color: #CCCCCC;
 }
+
+.snp-link {
+  color: #0c5578;
+  font-size: 15pt;
+  background-color: #CCCCCC;
+}
+
+.snp-link:hover {
+  background-color: #0c5578;
+  color: #FFFFFF;
+}
+
+.pubmed-link:hover {
+  background-color: #0c5578;
+}

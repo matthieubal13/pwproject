@@ -1,24 +1,32 @@
 {% extends 'snpref/base.html' %}
-
 {% block content %}
   <head>
-      <title>SNPs by phenotype</title>
+    <title>SNPs by phenotype</title>
   </head>
   <div class="well well-sm">
     <h4>SNPs related to the phenotype {{phenotype.trait}}</h4>
   </div>
-{% for snp_ref in snp_refs %}
-  <div class = "list-group">
-    <div class="list-group-item list-group-item-action">
-      <a href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
+  <div class = "container">
+  {% for snp_ref in snp_refs %}
+    <div class="row">
+        <div class = "col-sm-4"></div>
+        <a class = "col-sm-3 snp-link"
+        href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
         data-toggle="tooltip" title="Phenotypes related to">
-        {{snp_ref.snp.rs_id}}
+          <span class = "pull-right">
+            {{snp_ref.snp.rs_id}}
+          </span>
+        </a>
+      <a class = "col-sm-3 pubmed-link"
+      href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
+        <span class = "pull-left">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
+          title="References PubMed" alt="References PubMed"
+          style="width:60px;height:21px;">
+        </span>
       </a>
-      <a class="pull-right" href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
-        title="References PubMed" alt="References PubMed" style="width:60px;height:21px;">
-      </a>
+      <div class = "col-sm-4"></div>
     </div>
+  {% endfor %}
   </div>
-{% endfor %}
 {% endblock content %}
