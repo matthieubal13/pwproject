@@ -19,9 +19,9 @@ h4 {
   background-color: #CCCCCC;
 }
 
-.list-group:hover  .list-group-item:hover {
+.list-group .list-group-item-action:hover {
   background-color: #0c5578;
-  color: #DDDDDD;
+  color: #FFFFFF;
 }
 
 .navbar-inverse .navbar-header .navbar-brand {
