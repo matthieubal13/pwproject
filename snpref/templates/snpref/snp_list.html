@@ -1,0 +1,18 @@
+{% extends 'snpref/base.html' %}
+
+{% block content %}
+  <head>
+    <title>Phenotypes by SNP</title>
+  </head>
+  <div class="well well-sm">
+    <h4>All the SNPs</h4>
+  </div>
+    <ul class = "list-group">
+      {% for snp in snps %}
+      <a class="list-group-item list-group-item-action"
+      href="{% url 'snpref:snp_detail' pk=snp.pk%}">
+        {{snp.rs_id}}
+      </a>
+      {% endfor %}
+    </ul>
+{% endblock content %}

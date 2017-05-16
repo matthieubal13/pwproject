@@ -20,29 +20,52 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{% url 'snpref:phenotype_list'%}"
           data-toggle="tooltip" title="Home">SNPr</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <a href="https://www.ncbi.nlm.nih.gov/pubmed/" data-toggle="tooltip"
-          title="Go to PubMed">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
-            title="Home of PubMed" alt="PubMed" style="width:60px;height:21px;border:0;margin-top:15px;"></a>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'snpref:phenotype_list'%}" data-toggle="tooltip"
+              title="List of all phenotypes">
+                <span class = toolbar >
+                  Phenotypes
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'snpref:snp_list'%}" data-toggle="tooltip"
+              title="List of all SNPs">
+                <span class = toolbar >
+                  Snps
+                </span>
+              </a>
+            </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/admin" data-toggle="tooltip" title="Reserved for administrators">
-              <span class = toolbar ><span class="glyphicon glyphicon-user"></span>
-              Administration</span></a>
-              </li>
-            <li><a href="{% url 'authuser:disconnection'%}" data-toggle="tooltip"
-              title="Disconnection" class = "toolbar"><span class = toolbar ><span class="glyphicon glyphicon-log-out">
+            <li>
+              <a href="/admin" data-toggle="tooltip" title="Reserved for administrators">
+                <span class = toolbar >
+                  <span class="glyphicon glyphicon-user">
+                  </span>
+                Administration
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'authuser:disconnection'%}" data-toggle="tooltip"
+              title="Disconnection" class = "toolbar">
+              <span class = toolbar ><span class="glyphicon glyphicon-log-out">
               </span>
-              Log out</span></a>
+              Log out</span>
+            </a>
             </li>
             </ul>
         </div>
       </nav>
-      <div class="container-fluid" style="margin-top:75px;">
+      <div class="container" style="margin-top:75px;">
         {% block content %}
         {% endblock %}
       </div>
@@ -50,6 +73,13 @@
         <div class="container">
           <p class="navbar-text pull-left">© 2017 - Site Built By Bal & Ménétrier
                <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+               &emsp;
+               <a href="https://www.ncbi.nlm.nih.gov/pubmed/" data-toggle="tooltip"
+               title="Go to PubMed">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
+                 title="Home of PubMed" alt="PubMed"
+                 style="width:60px;height:21px;">
+               </a>
           </p>
           <a href="mailto:zacharie.menetrier@gmail.com?Subject=About%20SNPr"
           target="_top" class="navbar-btn btn-danger btn pull-right">

@@ -27,6 +27,13 @@ def phenotype_detail(request, pk):
     return render(request, 'snpref/phenotype_detail.html',
     {'snp_refs' : snp_refs, 'phenotype' : phenotype})
 
+def snp_list(request):
+    if not request.user.is_authenticated:
+        return redirect_to_connexion()
+    snps = SNP.objects.all()
+    return render(request, 'snpref/snp_list.html',
+    {'snps': snps})
+
 
 def snp_detail(request, pk):
     if not request.user.is_authenticated:
