@@ -4,7 +4,7 @@
 <form method = "post" action = ".">
   <div class = "form-group">
     <!--Protection against the "Cross site request forgery"-->
-    {% csrf_token
+    {% csrf_token %}
     <!--Creation of two search forms-->
     <label>Enter SNPs rsID separated by commas (empty for all)</label>
     {{ form.search }}
