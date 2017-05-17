@@ -31,6 +31,8 @@ def snp_list(request):
     if not request.user.is_authenticated:
         return redirect_to_connexion()
     snps = SNP.objects.all()
+    for snp in snps:
+        snp.ref = SNPRefPhen.objects.filter(snp = snp)
     return render(request, 'snpref/snp_list.html',
     {'snps': snps})
 

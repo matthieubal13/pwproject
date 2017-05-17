@@ -1,18 +1,33 @@
 {% extends 'snpref/base.html' %}
 
 {% block content %}
-  <head>
-    <title>Phenotypes by SNP</title>
-  </head>
-  <div class="well well-sm">
-    <h4>All the SNPs</h4>
+<head>
+  <title>Phenotypes by SNP</title>
+</head>
+<div class="well well-sm">
+  <h4>All the SNPs</h4>
+</div>
+<hr>
+{% for snp in snps %}
+<div class = "row">
+  <div class = "col-sm-5"></div>
+  <div class = "col-sm-1">
+    {% if snp.ref %}
+    <a class = "snp-detail"
+      href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
+      <span class="glyphicon glyphicon-education pull-right">
+      </span>
+    </a>
+    {% endif %}
   </div>
-    <ul class = "list-group">
-      {% for snp in snps %}
-      <a class="list-group-item list-group-item-action"
-      href="{% url 'snpref:snp_detail' pk=snp.pk%}">
-        {{snp.rs_id}}
-      </a>
-      {% endfor %}
-    </ul>
+  <div class = "col-sm-6">
+    <a class = "snp-detail"
+    href="{% url 'snpref:snp_detail' pk=snp.pk%}"
+    data-toggle="tooltip" title="See phenotypes">
+      {{snp.rs_id}}
+    </a>
+  </div>
+</div>
+<hr>
+{% endfor %}
 {% endblock content %}

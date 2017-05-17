@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://lab.subinsb.com/projects/blog/favicon.png"/>
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -30,7 +31,7 @@
             <li>
               <a href="{% url 'snpref:phenotype_list'%}" data-toggle="tooltip"
               title="List of all phenotypes">
-                <span class = toolbar >
+                <span class = "toolbar toolbar-left" >
                   Phenotypes
                 </span>
               </a>
@@ -38,7 +39,7 @@
             <li>
               <a href="{% url 'snpref:snp_list'%}" data-toggle="tooltip"
               title="List of all SNPs">
-                <span class = toolbar >
+                <span class = "toolbar toolbar-left" >
                   Snps
                 </span>
               </a>
@@ -47,25 +48,28 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a href="/admin" data-toggle="tooltip" title="Reserved for administrators">
-                <span class = toolbar >
+                <span class = "toolbar" >
                   <span class="glyphicon glyphicon-user">
                   </span>
-                Administration
+                  Administration
                 </span>
               </a>
             </li>
             <li>
               <a href="{% url 'authuser:disconnection'%}" data-toggle="tooltip"
-              title="Disconnection" class = "toolbar">
-              <span class = toolbar ><span class="glyphicon glyphicon-log-out">
+              title="Disconnection">
+              <span class = "toolbar" >
+                <span class="glyphicon glyphicon-log-out">
+                </span>
+                Log out
               </span>
-              Log out</span>
             </a>
             </li>
             </ul>
         </div>
       </nav>
-      <div class="container" style="margin-top:75px;">
+      <div class="container"
+      style="margin-top: 75px; padding-bottom:50px;">
         {% block content %}
         {% endblock %}
       </div>
