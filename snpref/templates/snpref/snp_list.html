@@ -1,23 +1,30 @@
+<!--Base template with header and footer-->
 {% extends 'snpref/base.html' %}
 {% block content %}
 <div class="well well-sm">
   <h4>All the SNPs</h4>
 </div>
+<!--horizontal bar separator-->
 <hr>
+<!--Place for each SNP-->
 {% for snp in snps %}
 <div>
     {% if snp.ref %}
+    <!--Link to the references-->
     <a class = "snp-detail"
       href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
       <span class="glyphicon glyphicon-education">
       </span>
     </a>
+    <!--Do a space between the two results-->
     &emsp;
     {% endif %}
+    <!--Link to the phenotypes list-->
     <a class = "snp-detail"
     href="{% url 'snpref:snp_detail' pk=snp.pk%}"
     data-toggle="tooltip" title="See phenotypes">
-      {{snp.rs_id}}
+    <!--The SNP reference is displayed-->
+    {{snp.rs_id}}
     </a>
 </div>
 <hr>

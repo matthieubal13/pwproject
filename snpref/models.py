@@ -24,7 +24,7 @@ class Reference(models.Model):
     def __str__(self):
         return str(self.url)
 
-#
+# Return primary keys of other tables
 class SNPRefPhen(models.Model):
     phenotype = models.ForeignKey(Phenotype, on_delete = models.CASCADE)
     snp = models.ForeignKey(SNP, on_delete = models.CASCADE)
