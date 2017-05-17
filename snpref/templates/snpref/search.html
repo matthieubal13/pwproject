@@ -1,0 +1,34 @@
+{% extends 'snpref/base.html' %}
+{% block content %}
+<form method = "post" action = ".">
+  <div class = "form-group">
+    {% csrf_token %}
+    <label>Enter SNPs rsID separated by commas (empty for all)</label>
+    {{ form.search }}
+    <label>Filter by phenotypes separated by commas (empty for all)</label>
+    {{ form.phenotypes }}
+  <button type = "submit" class ="btn btn-default">Search</button>
+  </div>
+</form>
+{% if snp %}
+<hr>
+{% endif %}
+{% for snp in snps %}
+<div>
+    {% if snp.ref %}
+    <a class = "snp-detail"
+      href="{{snp.ref.url}}" data-toggle="tooltip" title="Reference">
+      <span class="glyphicon glyphicon-education">
+      </span>
+    </a>
+    &emsp;
+    {% endif %}
+    <a class = "snp-detail"
+    href="{% url 'snpref:snp_detail' pk=snp.pk%}"
+    data-toggle="tooltip" title="See phenotypes">
+      {{snp.rs_id}}
+    </a>
+</div>
+<hr>
+{% endfor %}
+{% endblock content %}

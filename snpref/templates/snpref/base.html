@@ -2,6 +2,7 @@
 {% load staticfiles %}
 <html lang="en">
   <head>
+    <title>SNPr</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://lab.subinsb.com/projects/blog/favicon.png"/>
@@ -10,19 +11,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/snpref.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Sarina" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#myNavbar" data-toggle="tooltip" title="Menu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+          <span  data-toggle="tooltip">
+            <button type="button" class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar" title="Menu">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </span>
           <a class="navbar-brand" href="{% url 'snpref:phenotype_list'%}"
           data-toggle="tooltip" title="Home">SNPr</a>
         </div>
@@ -41,6 +45,14 @@
               title="List of all SNPs">
                 <span class = "toolbar toolbar-left" >
                   Snps
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'snpref:search'%}" data-toggle="tooltip"
+              title="Search through SNPs">
+                <span class = "toolbar toolbar-left" >
+                  Search
                 </span>
               </a>
             </li>
@@ -67,6 +79,7 @@
             </li>
             </ul>
         </div>
+        </div>
       </nav>
       <div class="container"
       style="margin-top: 75px; padding-bottom:50px;">
@@ -76,7 +89,7 @@
       <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
           <p class="navbar-text pull-left">© 2017 - Site Built By Bal & Ménétrier
-               <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+               <a href="https://validator.w3.org/" target="_blank" >HTML 5 Validation</a>
                &emsp;
                <a href="https://www.ncbi.nlm.nih.gov/pubmed/" data-toggle="tooltip"
                title="Go to PubMed">
@@ -86,7 +99,7 @@
                </a>
           </p>
           <a href="mailto:zacharie.menetrier@gmail.com?Subject=About%20SNPr"
-          target="_top" class="navbar-btn btn-danger btn pull-right">
+          target="_top" class="navbar-btn btn pull-right">
           <span class="glyphicon glyphicon-star"></span>  Contact us</a>
         </div>
       </div>

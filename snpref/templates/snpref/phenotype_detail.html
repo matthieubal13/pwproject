@@ -1,29 +1,22 @@
 {% extends 'snpref/base.html' %}
 {% block content %}
-<head>
-  <title>SNPs by phenotype</title>
-</head>
 <div class="well well-sm">
   <h4>SNPs related to the phenotype {{phenotype.trait}}</h4>
 </div>
 <hr>
 {% for snp_ref in snp_refs %}
-<div class = "row">
-  <div class = "col-sm-5"></div>
-  <div class = "col-sm-1">
-    <a class = "snp-detail"
-      href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
-      <span class="glyphicon glyphicon-education pull-right">
+<div>
+  <a class = "snp-detail"
+  href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
+      <span  class="glyphicon glyphicon-education">
       </span>
     </a>
-  </div>
-  <div class = "col-sm-6">
+    &emsp;
     <a class = "snp-detail"
     href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
     data-toggle="tooltip" title="See phenotypes">
       {{snp_ref.snp.rs_id}}
     </a>
-  </div>
 </div>
 <hr>
 {% endfor %}

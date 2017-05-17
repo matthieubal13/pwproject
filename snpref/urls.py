@@ -8,4 +8,6 @@ urlpatterns = [
     name = 'phenotype_detail'),
     url(r'^snp/(?P<pk>[0-9]+)/?$', views.snp_detail,
     name = 'snp_detail'),
+    url(r'^search/$', views.snp_search,
+    name = 'search'),
 ]
