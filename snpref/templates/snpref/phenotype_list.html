@@ -1,19 +1,24 @@
+<!--Base template with header and footer-->
 {% extends 'snpref/base.html' %}
-
 {% block content %}
-  <div class="well well-sm">
-    <h4>All the phenotypes</h4>
-  </div>
-  <div class = "list-group">
+<div class="well well-sm">
+  <h4>All the phenotypes</h4>
+</div>
+<div class = "list-group">
+  <!--Place for each phenotype-->
   {% for phenotype in phenotypes %}
   {% if phenotype.snp_number <= 0 %}
+  <!--If the phenotype has no snp then link is disabled-->
   <a class="list-group-item list-group-item-action disabled" href="#">
   {% else %}
+  <!--Link to the SNPs list-->
   <a class="list-group-item list-group-item-action"
   href="{% url 'snpref:phenotype_detail' pk=phenotype.pk%}"
   data-toggle="tooltip" title="SNPs related to">
   {% endif%}
+    <!--The phenotype trait is displayed-->
     {{phenotype.trait}}
+    <!--Badge is displayed with the number of SNPs for the phenotype-->
     <span class="badge badge-default badge-pill">
       {{phenotype.snp_number}}
     </span>

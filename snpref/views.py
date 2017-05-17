@@ -59,7 +59,7 @@ def snp_search(request):
                 phenotypes = set()
                 search_phen = search_phen.split(",")
                 for sp in search_phen:
-                    sp = sp.strip(" ")
+                    sp = sp.strip(" ").capitalize()
                     phenotype = Phenotype.objects.filter(trait = sp)
                     if phenotype:
                         phenotype = phenotype[0]

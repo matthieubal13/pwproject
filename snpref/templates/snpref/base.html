@@ -5,18 +5,30 @@
     <title>SNPr</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="https://lab.subinsb.com/projects/blog/favicon.png"/>
+    <!--Importing favicon-->
+    <link rel="shortcut icon" type="image/png"
+    href="https://lab.subinsb.com/projects/blog/favicon.png"/>
+    <!--Importing bootstrap references-->
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <!--Importing static files-->
     <link rel="stylesheet" href="{% static 'css/snpref.css' %}">
   </head>
   <body>
+    <!--Begin of navbar-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <span  data-toggle="tooltip">
+            <!--
+            This will alllow display on small screens with collapsing button
+          -->
             <button type="button" class="navbar-toggle"
             data-toggle="collapse"
             data-target="#myNavbar" title="Menu">
@@ -27,11 +39,14 @@
               <span class="icon-bar"></span>
             </button>
           </span>
+          <!--Home page-->
           <a class="navbar-brand" href="{% url 'snpref:phenotype_list'%}"
           data-toggle="tooltip" title="Home">SNPr</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
+          <!--Begin of left navbar-->
           <ul class="nav navbar-nav">
+            <!--Phenotypes-->
             <li>
               <a href="{% url 'snpref:phenotype_list'%}" data-toggle="tooltip"
               title="List of all phenotypes">
@@ -40,14 +55,16 @@
                 </span>
               </a>
             </li>
+            <!--SNPs-->
             <li>
               <a href="{% url 'snpref:snp_list'%}" data-toggle="tooltip"
               title="List of all SNPs">
                 <span class = "toolbar toolbar-left" >
-                  Snps
+                  SNPs
                 </span>
               </a>
             </li>
+            <!--Search-->
             <li>
               <a href="{% url 'snpref:search'%}" data-toggle="tooltip"
               title="Search through SNPs">
@@ -57,9 +74,12 @@
               </a>
             </li>
           </ul>
+          <!--Begin of right navbar-->
           <ul class="nav navbar-nav navbar-right">
+            <!--Administration-->
             <li>
-              <a href="/admin" data-toggle="tooltip" title="Reserved for administrators">
+              <a href="/admin" data-toggle="tooltip"
+              title="Reserved for administrators">
                 <span class = "toolbar" >
                   <span class="glyphicon glyphicon-user">
                   </span>
@@ -67,6 +87,7 @@
                 </span>
               </a>
             </li>
+            <!--Log out-->
             <li>
               <a href="{% url 'authuser:disconnection'%}" data-toggle="tooltip"
               title="Disconnection">
@@ -83,21 +104,32 @@
       </nav>
       <div class="container"
       style="margin-top: 75px; padding-bottom:50px;">
+        <!--Place for inherited templates-->
         {% block content %}
         {% endblock %}
       </div>
+      <!--Begin of footer-->
       <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
-          <p class="navbar-text pull-left">© 2017 - Site Built By Bal & Ménétrier
-               <a href="https://validator.w3.org/" target="_blank" >HTML 5 Validation</a>
-               &emsp;
-               <a href="https://www.ncbi.nlm.nih.gov/pubmed/" data-toggle="tooltip"
-               title="Go to PubMed">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
-                 title="Home of PubMed" alt="PubMed"
-                 style="width:60px;height:21px;">
-               </a>
+          <p class="navbar-text pull-left">
+            <!--Date and name-->
+            © 2017 - Site Built By Bal & Ménétrier
+            <!--HTML validator-->
+             <a href="https://validator.w3.org/" target="_blank" >
+               HTML 5 Validation
+             </a>
+             &emsp;
+             <!--Pubmed link-->
+             <a href="https://www.ncbi.nlm.nih.gov/pubmed/"
+             data-toggle="tooltip"
+             title="Go to PubMed">
+               <img
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/US-NLM-PubMed-Logo.svg/1200px-US-NLM-PubMed-Logo.svg.png"
+               title="Home of PubMed" alt="PubMed"
+               style="width:60px;height:21px;">
+             </a>
           </p>
+          <!--Email contact-->
           <a href="mailto:zacharie.menetrier@gmail.com?Subject=About%20SNPr"
           target="_top" class="navbar-btn btn pull-right">
           <span class="glyphicon glyphicon-star"></span>  Contact us</a>

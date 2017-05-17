@@ -1,3 +1,4 @@
+<!--Base template with header and footer-->
 {% extends 'snpref/base.html' %}
 {% block content %}
 <div class="well well-sm">
@@ -5,19 +6,23 @@
 </div>
 <hr>
 {% for snp_ref in snp_refs %}
+<!--place for each snps of the phenotype-->
 <div>
+  <!--pubmed link-->
   <a class = "snp-detail"
   href="{{snp_ref.ref.url}}" data-toggle="tooltip" title="Reference">
       <span  class="glyphicon glyphicon-education">
       </span>
     </a>
     &emsp;
+    <!--snp link-->
     <a class = "snp-detail"
     href="{% url 'snpref:snp_detail' pk=snp_ref.snp.pk%}"
     data-toggle="tooltip" title="See phenotypes">
       {{snp_ref.snp.rs_id}}
     </a>
 </div>
+<!--horizontal bar separator-->
 <hr>
 {% endfor %}
 {% endblock content %}
