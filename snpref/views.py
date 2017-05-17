@@ -9,45 +9,64 @@ from .models import Phenotype, SNP, Reference, SNPRefPhen
 from django.core.urlresolvers import reverse
 from .forms import SearchForm
 
+# Creation of functions which search data in Database and return the datas to
+# the templates
+
+# Creation of a list of all the phenotypes
 def phenotype_list(request):
+    # Security of the page
     if not request.user.is_authenticated:
         return redirect_to_connexion()
+    # List of phenotpes
     phenotypes = Phenotype.objects.all()
+    # Count the number of phenotypes
     for phenotype in phenotypes:
         phenotype.snp_number = len(SNPRefPhen.objects.filter(phenotype = phenotype))
     return render(request, 'snpref/phenotype_list.html',
     {'phenotypes': phenotypes})
 
-
+# Creation of a list of SNPs which depend of a phenotype
 def phenotype_detail(request, pk):
+    # Security of the page
     if not request.user.is_authenticated:
         return redirect_to_connexion()
+    # Recover the ID of the phenotype
     phenotype = Phenotype.objects.get(pk = pk)
+    # filter the SNPs by the ID of the phenotypes
     snp_refs = SNPRefPhen.objects.filter(phenotype = phenotype)
     return render(request, 'snpref/phenotype_detail.html',
     {'snp_refs' : snp_refs, 'phenotype' : phenotype})
 
+# Creation of a list of all the SNPs
 def snp_list(request):
+    # Security of the page
     if not request.user.is_authenticated:
         return redirect_to_connexion()
+    # List of SNPs
     snps = SNP.objects.all()
     for snp in snps:
         snp.ref = SNPRefPhen.objects.filter(snp = snp)
     return render(request, 'snpref/snp_list.html',
     {'snps': snps})
 
-
+# Creation of a list of phenotypes which depend of a SNP
 def snp_detail(request, pk):
+    # Security of the page
     if not request.user.is_authenticated:
         return redirect_to_connexion()
+    # Recover the ID of the SNP
     snp = SNP.objects.get(pk = pk)
+    # filter the phenotypes by the ID of the SNPs
     snp_refs = SNPRefPhen.objects.filter(snp = snp)
     return render(request, 'snpref/snp_detail.html',
     {'snp_refs' : snp_refs, 'snp' : snp})
 
+# Creation of search request
 def snp_search(request):
+    # Security of the page
     if not request.user.is_authenticated:
         return redirect_to_connexion()
+    # test the validity of the search
     if request.method == "POST":
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -112,5 +131,6 @@ def get_clean_search(search, phenotypes):
         phe.add(phenotype.strip())
     return se, phe
 
+# Redirects to the connection view
 def redirect_to_connexion():
     return redirect(reverse('authuser:connection'))
